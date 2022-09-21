@@ -27,3 +27,17 @@ Route.get('/', async () => {
 Route.get('/healthz', () => {
   return { result: 'all good!' }
 })
+
+Route.get('/hotmart', 'HotmartController.index')
+
+/**
+ * Rota para consultar na Hotmart se o email infomado existe. Seguir o seguinte flow:
+ * 1. (API) Verificar se o email existe na base de dados da Hotmart
+    1. Se o email existir
+        1. Verificar se já tem uma senha cadastrada no “Meus Certificados”
+            1. Se já tiver → solicitar senha cadastrada/permitir redefinir senha
+            2. Se não tiver → solicitar o cadastro de uma senha
+    2. Senão
+        1. Negar acesso ao sistema
+ */
+Route.get("/check-email/:email", 'HotmartController.checkEmail')
