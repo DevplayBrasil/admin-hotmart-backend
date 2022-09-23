@@ -15,9 +15,11 @@ export default class AxiosCommonRequest {
             }
         };
 
+        let result:any = {};
+
         await axios(config)
             .then((response) => {
-                return response.data;                
+                result = response.data;
             }).catch(async (error) => {
                 console.log(error.response.data);
                 const error_message = error.response.data.error;
@@ -29,9 +31,11 @@ export default class AxiosCommonRequest {
                 if (can_generate_new_token.includes(error_message)) {
                     console.log("💇‍♀️ Gerando uma nova token!");
                     await HotmartService.generateToken();
-                    console.log("💇‍♀️ Chamando a função novamente, porém com a nova token gerada!");;
+                    console.log("💇‍♀️ Chamando a função novamente, porém com a nova token gerada!");
                 }
 
             });
+        
+        return result;
     }
 }

@@ -26,11 +26,21 @@ export default class HotmartController {
         }
 
         try {
+            const getByEmail = await AxiosCommonRequest.doRequest(`https://developers.hotmart.com/club/api/v1/users?subdomain=devplaybrasil&email=${email}`);
+                        
+            if (!Object.keys(getByEmail.items).length){
+                return ctx.response.send({ data: "Atenção! Email não encontrado na base de dados da Hotmart! Verifique o email informado e tente novamente." }); 
+            }
 
-            console.log("aqui", await AxiosCommonRequest.doRequest(`https://developers.hotmart.com/club/api/v1/users?subdomain=devplaybrasil&email=${email}`));
-            // ctx.response.send({ data: res });
+            if (getByEmail.items[0].status !== "ACTIVE") {                
+                return ctx.response.send({ data: "Atenção! O seu cadastro encontra-se INATIVO. Favor entrar em contato com o produtor do seu curso." }); 
+            }
+
+            // Verificar a existência de senha de sistema cadastrada;
+
+            return ctx.response.send({ data: "Email encontrado e válido na plataforma" });
         } catch (error) {
-            console.log(error.response.data);
+            console.log(error);
         }
 
 
