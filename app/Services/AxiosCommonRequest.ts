@@ -1,10 +1,10 @@
 
 import axios from 'axios'
-import HotmartService from 'App/Services/Hotmart';
+import HotmartService from 'App/Services/HotmartService';
 
 export default class AxiosCommonRequest {
 
-    public static async doRequest(url) {
+    public static async doRequest(url: string) {
         const token = await HotmartService.getToken();
         const config = {
             method: 'get',
@@ -16,6 +16,8 @@ export default class AxiosCommonRequest {
         };
 
         let result:any = {};
+
+        //TODO: revalidar a checagem da token. Ainda está com problema.
 
         await axios(config)
             .then((response) => {

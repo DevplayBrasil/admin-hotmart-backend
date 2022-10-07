@@ -95,6 +95,50 @@
       "args": [],
       "aliases": [],
       "flags": []
+    },
+    "prisma-seeder:init": {
+      "settings": {},
+      "commandPath": "@wahyubucil/adonis-prisma/build/commands/PrismaSeederInit",
+      "commandName": "prisma-seeder:init",
+      "description": "Init Prisma Seeder",
+      "args": [],
+      "aliases": [],
+      "flags": []
+    },
+    "prisma-seeder:make": {
+      "settings": {},
+      "commandPath": "@wahyubucil/adonis-prisma/build/commands/PrismaSeederMake",
+      "commandName": "prisma-seeder:make",
+      "description": "Make a new Prisma Seeder file",
+      "args": [
+        {
+          "type": "string",
+          "propertyName": "name",
+          "name": "name",
+          "required": true,
+          "description": "Name of the seeder class"
+        }
+      ],
+      "aliases": [],
+      "flags": [
+        {
+          "name": "dev",
+          "propertyName": "dev",
+          "type": "boolean",
+          "description": "Create seeder for development only"
+        }
+      ]
+    },
+    "prisma-seeder:run": {
+      "settings": {
+        "loadApp": true
+      },
+      "commandPath": "@wahyubucil/adonis-prisma/build/commands/PrismaSeederRun",
+      "commandName": "prisma-seeder:run",
+      "description": "Execute Prisma seeders",
+      "args": [],
+      "aliases": [],
+      "flags": []
     }
   },
   "aliases": {}

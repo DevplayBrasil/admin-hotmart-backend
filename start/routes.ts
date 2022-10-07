@@ -40,4 +40,6 @@ Route.get('/hotmart', 'HotmartController.index')
     2. Senão
         1. Negar acesso ao sistema
  */
-Route.get("/check-email/:email", 'HotmartController.checkEmail')
+Route.get("/check-email/:email", 'HotmartController.checkEmail');
+Route.post("/store-pass", 'HotmartController.storePass');
+Route.post("/login", 'HotmartController.login');
