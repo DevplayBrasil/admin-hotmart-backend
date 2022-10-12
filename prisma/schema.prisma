@@ -15,10 +15,16 @@ datasource db {
 model User {
   id         Int      @id @default(autoincrement())
   email      String   @unique
+  role       Role     @default(STUDENT)
   password   String
   name       String
   created_at DateTime @default(now())
-  updated_at  DateTime @updatedAt
+  updated_at DateTime @updatedAt
 
   @@map("users")
+}
+
+enum Role {
+  STUDENT
+  ADMIN
 }

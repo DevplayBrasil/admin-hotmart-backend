@@ -8,6 +8,9 @@
     "start": "node server.js",
     "lint": "eslint . --ext=.ts"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "eslintConfig": {
     "extends": [
       "plugin:adonis/typescriptApp"
@@ -33,11 +36,13 @@
     "@adonisjs/core": "^5.8.0",
     "@adonisjs/repl": "^3.1.0",
     "@prisma/client": "^4.4.0",
+    "@types/node": "^18.8.4",
     "@wahyubucil/adonis-prisma": "^0.4.0",
     "axios": "^0.27.2",
     "phc-bcrypt": "^1.0.7",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.21"
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.1"
   }
 }
